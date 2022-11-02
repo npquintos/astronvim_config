@@ -182,6 +182,10 @@ local config = {
       ["T"] = { "zt", desc = "move current line to top" },
       ["j"] = { "gj", desc = "move down to adjacent line" },
       ["k"] = { "gk", desc = "move up to adjacent line" },
+      ["B"] = { "^", desc = "go to start of line" },
+      ["E"] = { "$", desc = "go to end of line" },
+      ["B"] = { "^", desc = "go to start of line" },
+      
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
