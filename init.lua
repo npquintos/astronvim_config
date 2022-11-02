@@ -1,5 +1,8 @@
 --              AstroNvim Configuration Table
 -- All configuration changes should go inside of the table below
+-- This init.lua file must be placed under ~/.config/nvim/lua/user or
+-- for Windows, AppData/nvim/lua/user folder. Don't replace "user" with
+-- your username!
 
 -- You can think of a Lua "table" as a dictionary like data structure the
 -- normal format is "key = value". These also handle array like data structures
