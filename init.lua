@@ -7,6 +7,11 @@
 -- You can think of a Lua "table" as a dictionary like data structure the
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
+
+-- override surround keybindings
+-- vim.g.surround_no_mappings = 1
+-- end of surround overrides
+
 local config = {
 
   -- Configure AstroNvim updates
@@ -52,22 +57,27 @@ local config = {
       breakindent = true,
       wrap = true,
       scrolloff = 0,
-      expandtab = true,
       tabstop = 4,
+      softtabstop = 4,
+      shiftwidth = 4,
+      expandtab = true,
     },
     -- g = {
     --   mapleader = " ", -- sets vim.g.mapleader
     -- },
   },
   -- If you need more control, you can use the function()...end notation
-  -- options = function(local_vim)
+  options = function(local_vim)
   --   local_vim.opt.relativenumber = true
+       local_vim.opt.softtabstop = 4
+       local_vim.opt.tabstop = 4
+       local_vim.opt.shiftwidth = 4
   --   local_vim.g.mapleader = " "
   --   local_vim.opt.whichwrap = vim.opt.whichwrap - { 'b', 's' } -- removing option from list
   --   local_vim.opt.shortmess = vim.opt.shortmess + { I = true } -- add to option list
   --
-  --   return local_vim
-  -- end,
+     return local_vim
+  end,
 
   -- Set dashboard header
   header = {
@@ -179,13 +189,20 @@ local config = {
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+      ["P"] = { "%", desc = "jump to the opening/closing pair" },
       ["T"] = { "zt", desc = "move current line to top" },
       ["j"] = { "gj", desc = "move down to adjacent line" },
       ["k"] = { "gk", desc = "move up to adjacent line" },
-      ["B"] = { "^", desc = "go to start of line" },
-      ["E"] = { "$", desc = "go to end of line" },
-      ["B"] = { "^", desc = "go to start of line" },
-      
+      -- ["ds"] = { "<Plug>Dsurround", desc = "delete surround" },
+      -- ["cs"] = { "<Plug>Csurround", desc = "change surround" },
+      -- ["cS"] = { "<Plug>CSurround", desc = "change surround of previous" },
+      ["ys"] = { "<Plug>Ysurround", desc = "yank surround" },
+      ["yS"] = { "<Plug>YSurround", desc = "yank surround of previous" },
+      ["yss"] = { "<Plug>Yssurround", desc = "" },
+      ["ySs"] = { "<Plug>YSsurround", desc = "" },
+      ["ySS"] = { "<Plug>YSsurround", desc = "" },
+      ["gs"]= {"<Plug>VSurround", desc = ""},
+      ["gS"]= {"<Plug>VgSurround", desc = ""},       
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
@@ -195,7 +212,13 @@ local config = {
     },
   },
 
+  -- --------------------------------------------------------------------------------
+  -- --------------------------------------------------------------------------------
+  -- --------------------------------------------------------------------------------
   -- Configure plugins
+  -- --------------------------------------------------------------------------------
+  -- --------------------------------------------------------------------------------
+  -- --------------------------------------------------------------------------------
   plugins = {
     init = {
       -- You can disable default plugins as follows:
@@ -203,8 +226,29 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
-      { "tpope/repeat.vim" },
-      { "ggandor/leap.nvim" },
+      { "ggandor/leap.nvim",
+        config = function()
+          require('leap').set_default_keymaps(true)
+        end,
+      },
+
+      { 'alexghergh/nvim-tmux-navigation', config = function()
+
+        local nvim_tmux_nav = require('nvim-tmux-navigation')
+
+        nvim_tmux_nav.setup {
+            disable_when_zoomed = true -- defaults to false
+        }
+
+            vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+            vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+            vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+            vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+            vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+            vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+
+          end,
+      },
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -285,7 +329,7 @@ local config = {
       nvim_lsp = 1000,
       luasnip = 750,
       buffer = 500,
-      path = 250,
+      path = 250,lllllllllllxej1
     },
   },
 
