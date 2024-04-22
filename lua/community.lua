@@ -13,4 +13,5 @@ return {
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.colorscheme.bamboo-nvim" },
   { import = "astrocommunity.note-taking.neorg" },
+  { import = "astrocommunity.snippet.nvim-snippets" },
 }
