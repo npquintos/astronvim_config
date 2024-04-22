@@ -12,4 +12,5 @@ return {
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
   { import = "astrocommunity.colorscheme.bamboo-nvim" },
+  { import = "astrocommunity.note-taking.neorg" },
 }
