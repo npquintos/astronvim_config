@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -27,11 +27,16 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = false, -- sets vim.opt.wrap
+        wrap = true, -- sets vim.opt.wrap
+        shiftwidth = 4,
+        expandtab = true,
+        hlsearch = true,
+        tabstop = 4,
+        linebreak = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -64,6 +69,21 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<right>"] = { ":let linenum=getpos('.')[1]|:wincmd l|:call cursor(linenum,0)<cr>", desc = "go to same line number at right pane" },
+        ["<left>"] = { ":let linenum=getpos('.')[1]|:wincmd h|:call cursor(linenum,0)<cr>", desc = "go to same line number at left pane" },
+        ["<up>"] = { ":let linenum=getpos('.')[1]|:wincmd k|:call cursor(linenum,0)<cr>", desc = "go to same line number at upper pane" },
+        ["<down>"] = { ":let linenum=getpos('.')[1]|:wincmd j|:call cursor(linenum,0)<cr>", desc = "go to same line number at lower pane" },
+        ["o"] = { "%", desc = "jump to opening/closing pair" },
+        ["T"] = { "zt", desc = "move current line to top" },
+        ["E"] = { "$", desc = "move cursor to end of line" },
+        ["B"] = { "^", desc = "move cursor to beginning of line" },
+        ["P"] = { "]pcf=def<esc>A:<cr>", desc = "convert to function def" },
+        [">"] = { ">gv", desc = "retain selection after indentation" },
+        ["<"] = { "<gv", desc = "retain selection after un-indentation" },
+        ["gf"] = { "?def <cr>w", desc = "go to start of function" },
+        ["gb"] = { "?def <cr>w*", desc = "go to calling function" },
+        ["<A-h>"] = { ":bprev<cr>", desc = "go to previous buffer" },
+        ["<A-l>"] = { ":bnext<cr>", desc = "go to next buffer" },
       },
       t = {
         -- setting a mapping to false will disable it
