@@ -82,8 +82,6 @@ return {
         ["<"] = { "<gv", desc = "retain selection after un-indentation" },
         ["gf"] = { "?def <cr>w", desc = "go to start of function" },
         ["gb"] = { "?def <cr>w*", desc = "go to calling function" },
-        ["<A-h>"] = { ":bprev<cr>", desc = "go to previous buffer" },
-        ["<A-l>"] = { ":bnext<cr>", desc = "go to next buffer" },
       },
       t = {
         -- setting a mapping to false will disable it
