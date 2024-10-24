@@ -12,6 +12,8 @@ return {
   priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
   config = true,
   },
+  { "hrsh7th/nvim-cmp", enabled = false },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
