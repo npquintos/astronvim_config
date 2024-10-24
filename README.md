@@ -1,4 +1,5 @@
 # AstroNvim Template
+**Use this instead of AstroNvimUser**
 
 **NOTE:** This is for AstroNvim v4+
 
