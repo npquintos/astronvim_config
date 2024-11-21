@@ -17,4 +17,5 @@ return {
   { import = "astrocommunity.completion.coq_nvim" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { import = "astrocommunity.editing-support.nvim-origami" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 }
