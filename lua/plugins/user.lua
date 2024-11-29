@@ -35,7 +35,11 @@ return {
         },
       },
   },
-  -- == Examples of Adding Plugins ==
+  {
+  'mrcjkb/haskell-tools.nvim',
+  version = '^4', -- Recommended
+  lazy = false, -- This plugin is already lazy
+  },
 
   "andweeb/presence.nvim",
   {
