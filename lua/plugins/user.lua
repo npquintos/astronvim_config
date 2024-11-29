@@ -40,7 +40,10 @@ return {
   version = '^4', -- Recommended
   lazy = false, -- This plugin is already lazy
   },
-
+  { 
+    "meznaric/key-analyzer.nvim", 
+    opts = {} 
+  },
   "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
