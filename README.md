@@ -34,7 +34,7 @@ git clone https://github.com/npquintos/astronvim_config ~/.config/nvim
 nvim
 ```
 
-#### Run ":echo stdpath("config") and take note of directory location and place underneath 'astrocommunity/snippet/nvim-snippets'
+#### Run :echo stdpath("config") and take note of directory location and place underneath 'astrocommunity/snippet/nvim-snippets'
 
 Then, place under this nvim-snippet folder your json files and language-specific folders. You could use friendly-snippets to start with.
 
